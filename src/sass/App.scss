@@ -1,0 +1,337 @@
+// @include flexCenter;
+// @include flexSpace;
+// @include flexVertical;
+
+@mixin flex($items, $justify, $direction) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: $items;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+// @include flex(center, center, null);
+// @include flex(center, space-between, null);
+// @include flex(center, null, null);
+
+body {
+  background-color: #131317;
+}
+main {
+  @include flex(null, space-between, null);
+  height: 100vh;
+  #left {
+    width: 264px;
+  }
+  #right {
+    border-left: 1px solid #26262e;
+  }
+}
+
+.friend {
+  background-color: #131317;
+  width: 1214px;
+  padding: 40px 24px;
+  button {
+    border: none;
+    outline: none;
+  }
+  &_tab {
+    width: 624px;
+  }
+  .search-box {
+    width: 100%;
+    position: relative;
+    @include flex(center, null, null);
+    margin-bottom: 24px;
+    .search-icon {
+      position: absolute;
+      top: 52%;
+      left: 0;
+      background-color: transparent;
+      border: none;
+      transform: translate(30%, -50%);
+    }
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      padding-left: 40px;
+      background: #26262e;
+      border-radius: 12px;
+      color: #fff;
+      outline: none;
+    }
+    .search-button {
+      height: 24px;
+      width: 24px;
+      cursor: pointer;
+      background: none;
+      margin-left: 16px;
+    }
+  }
+  .refer {
+    margin-bottom: 40px;
+    .txt {
+      margin-bottom: 16px;
+      @include flex(center, space-between, null);
+      h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #f5f5f7;
+      }
+      span {
+        font-size: 14px;
+        color: #6e6e74;
+      }
+      h5 {
+        margin: 0;
+        font-size: 14px;
+        color: #cdcdd2;
+      }
+      p {
+        margin: 0%;
+        .frist {
+          color: #f5f5f7 !important;
+        }
+      }
+    }
+
+    &_list {
+      @include flex(center, space-between, null);
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .txt {
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+      &_left {
+        @include flex(center, null, null);
+        img {
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+        h5 {
+          margin: 0;
+          font-size: 14px;
+          color: #cdcdd2;
+        }
+        p {
+          margin: 0%;
+          padding-bottom: 5px;
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+      &_right {
+        button {
+          margin-right: 17px;
+        }
+        img {
+          width: 13px;
+          height: 13px;
+        }
+      }
+      &_item {
+        @include flex(center, space-between, null);
+        width: 100%;
+      }
+    }
+  }
+  .friend-second-list {
+    margin-bottom: 0;
+    .txt {
+      align-items: flex-start;
+      h5 {
+        font-size: 12px;
+        color: #cdcdd2;
+        font-weight: 400;
+      }
+    }
+    .refer_list {
+      margin-bottom: 27px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.btn {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 16px;
+  background-color: #f5f5f7;
+  color: #131317;
+  // margin: 0px 10px;
+}
+
+@media (max-width: 1440px) {
+  .main {
+    .friend {
+      width: 1000px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  main {
+    .friend {
+      width: 710px;
+    }
+    .friend_tab {
+      width: 382px;
+    }
+    .btn {
+      padding: 6px 11px;
+      font-size: 14px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  main {
+    .friend_tab,
+    .friend {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 576px) {
+  main {
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    .friend {
+      padding: 20px;
+    }
+    .btn {
+      font-size: 12px;
+    }
+    .easier {
+      width: 92%;
+      bottom: 0;
+      top: inherit;
+      transform: translate(-50%, 0%);
+      border-radius: 18px 18px 0px 0px;
+      height: min-content;
+      h2 {
+        padding: 0 40px;
+      }
+    }
+  }
+}
+
+// easier components css
+.easier {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #26262e;
+  width: 414px;
+  height: 425px;
+  border-radius: 12px;
+  padding: 24px 16px;
+  &_tab {
+    position: relative;
+    .pro {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #cdcdd2;
+    }
+    .progress {
+      background-color: #131317;
+      width: 100%;
+      border-radius: 4px;
+      @include flex(null, space-between, null);
+      position: relative;
+      .skill {
+        background-color: #1aff91;
+        color: #6e6e74;
+        // padding: 1%;
+        text-align: right;
+        font-size: 20px;
+        border-radius: 4px;
+        width: 12%;
+        height: 8px;
+      }
+
+      .progress_txt {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        @include flex(null, space-between, null);
+        padding-top: 8px;
+        width: 100%;
+        span {
+          font-weight: 400;
+          color: #6e6e74;
+          font-size: 14px;
+        }
+      }
+    }
+    h2 {
+      font-size: 20px;
+      color: #f5f5f7;
+      font-weight: 400;
+      line-height: 30px;
+      text-align: center;
+      padding: 0 60px;
+      margin-bottom: 24px;
+      margin-top: 0;
+    }
+    &_items {
+      margin-top: 40px;
+
+      ._item {
+        background: #3e3e45;
+        border-radius: 6px;
+        @include flex(center, space-between, null);
+        padding: 22px 16px;
+        margin-bottom: 8px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        p {
+          margin: 0;
+          font-size: 16px;
+        }
+        .img_sec {
+          @include flex(center, null, null);
+          img {
+            margin-right: 8px;
+          }
+          p {
+            color: #f5f5f7;
+          }
+        }
+        .txt {
+          @include flex(center, null, null);
+          p {
+            color: #1aff91;
+            margin-right: 9px;
+          }
+        }
+      }
+    }
+    &_footer {
+      padding-top: 24px;
+      text-align: center;
+      p {
+        color: #6e6e74;
+        font-weight: 600;
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+  }
+}
+// ./easier components css
